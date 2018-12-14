@@ -9,19 +9,96 @@ namespace Basic.Lesson_4._1
 {
     partial class Practice
     {
+        public static int SUM2Number()
+        {
+            int x, y;
+            Console.WriteLine("Введите число 1");
+            x = int.Parse(Console.ReadLine());
+            Console.WriteLine("Введите число 2");
+            y = int.Parse(Console.ReadLine());
+            return x + y;
+        }
         //B4-P1/25. If_TimeOfDayGreeting
         public static void B4_P1_25_If_TimeOfDayGreeting()
         {
+            int sum;
+            int answer;
+
+            int x, y;
+            Console.WriteLine("Введите число 1");
+            x = int.Parse(Console.ReadLine());
+            Console.WriteLine("Введите число 2");
+            y = int.Parse(Console.ReadLine());
+
+            sum = x + y;
+
+            Console.WriteLine("Введите ответ");
+            answer = int.Parse(Console.ReadLine());
+
+            if (sum == answer) Console.WriteLine("Правильно\n");
+            else Console.WriteLine("Неправильно\n");
         }
 
         //B4-P2/25. If_NumbersComparing
         public static void B4_P2_25_If_NumbersComparing()
         {
+            int sum;
+            //int answer;
+
+            int x, y;
+            Console.WriteLine("Введите число 1");
+            x = int.Parse(Console.ReadLine());
+            Console.WriteLine("Введите число 2");
+            y = int.Parse(Console.ReadLine());
+
+            sum = x + y;
+
+
+            //Console.WriteLine("Введите ответ");
+            //answer = int.Parse(Console.ReadLine());
+
+            //if (sum == answer) Console.WriteLine("Правильно\n");
+            //else Console.WriteLine("Неправильно\n");
+
+            if (x == y) Console.WriteLine("Равно\n");
+            else if (x > y) Console.WriteLine("X > Y\n");
+            else Console.WriteLine("X < Y\n");
         }
 
         //B4-P3/25. If_PositiveNumbersComparing
         public static void B4_P3_25_If_PositiveNumbersComparing()
         {
+            int sum;
+            //int answer;
+
+            int x, y;
+            Console.WriteLine("Введите число 1");
+            x = int.Parse(Console.ReadLine());
+
+            if (x >= 0)
+            {
+                
+                Console.WriteLine("Введите число 2");
+                y = int.Parse(Console.ReadLine());
+
+                if (y >= 0)
+                {
+
+                    sum = x + y;
+
+
+                    //Console.WriteLine("Введите ответ");
+                    //answer = int.Parse(Console.ReadLine());
+
+                    //if (sum == answer) Console.WriteLine("Правильно\n");
+                    //else Console.WriteLine("Неправильно\n");
+
+                    if (x == y) Console.WriteLine("Равно\n");
+                    else if (x > y) Console.WriteLine("X > Y\n");
+                    else Console.WriteLine("X < Y\n");
+                }
+            }
+            else Console.WriteLine("Введите положителное число");
         }
 
         //B4-P4/25. If_Akinator5Numbers
@@ -33,24 +110,98 @@ namespace Basic.Lesson_4._1
         //B4-P5/25. Switch_DayOfWeek
         public static void B4_P5_25_Switch_DayOfWeek()
         {
+            var ToDay = DateTime.Today;
+            int DayOfWeak = Convert.ToInt32(ToDay.DayOfWeek);
+
+
+            switch (DayOfWeak)
+            {
+                case 1 :
+                    Console.WriteLine("Доброго понедельника, Ольга!");
+                    break;
+                case 2:
+                    Console.WriteLine("Вторник");
+                    break;
+                case 3:
+                    Console.WriteLine("Среда");
+                    break;
+                case 4 :
+                    Console.WriteLine("четверг");
+                    break;
+                case 5:
+                    Console.WriteLine("Пятница");
+                    break;
+                case 6:
+                    Console.WriteLine("Суббота");
+                    break;
+                default :
+                    Console.WriteLine("Воскресенье");
+                    break;
+
+            }
+            
         }
 
         //B4-P6/25. Switch_GameNavigation
         public static void B4_P6_25_Switch_GameNavigation()
         {
-            
+            char s;
+
+            Console.WriteLine("Выберите направление игрока: W, A, S, D");
+            s = Convert.ToChar(Console.Read());
+
+            switch (s)
+            {
+                case 'W' :
+                case 'w':
+                    Console.WriteLine("W");
+                    break;
+                case 'S':
+                case 's':
+                    Console.WriteLine("S");
+                    break;
+                case 'D':
+                case 'd':
+                    Console.WriteLine("D");
+                    break;
+                case 'A':
+                case 'a':
+                    Console.WriteLine("a");
+                    break;
+
+            }
+
+
+
         }
 
         //B4-P7/25. For_10OddEven
         public static void B4_P7_25_For_10OddEven()
         {
-            
+                   //  var i = int.Parse(Console.ReadLine());
+            //int i = 1;
+
+            for (int i = 1; i <= 10; i++ )
+            {
+                switch (i % 2)
+                {
+                    case 0:
+                        Console.Write(i + "  Number is an even number\n");
+                        break;
+
+                    case 1:
+                        Console.Write(i + "  Number is an odd number\n");
+                        break;
+                }
+            }
         }
 
 
         //B4-P8/25. For_3DevideNumbers
         public static void B4_P8_25_For_3DevideNumbers()
         {
+            for(int i = 30; i >= 0; i--)
+                if (i % 3 == 0) Console.Write(i + "\n");
         }
 
 
