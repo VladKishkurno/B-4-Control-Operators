@@ -43,7 +43,7 @@ namespace Basic.Lesson_4._1
         public static void B4_P2_25_If_NumbersComparing()
         {
             int sum;
-            //int answer;
+            int answer;
 
             int x, y;
             Console.WriteLine("Введите число 1");
@@ -54,8 +54,9 @@ namespace Basic.Lesson_4._1
             sum = x + y;
 
 
-            //Console.WriteLine("Введите ответ");
-            //answer = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Введите ответ");
+            answer = int.Parse(Console.ReadLine());
 
             //if (sum == answer) Console.WriteLine("Правильно\n");
             //else Console.WriteLine("Неправильно\n");
@@ -145,14 +146,17 @@ namespace Basic.Lesson_4._1
         //B4-P6/25. Switch_GameNavigation
         public static void B4_P6_25_Switch_GameNavigation()
         {
-            char s;
+            //var s;
 
             Console.WriteLine("Выберите направление игрока: W, A, S, D");
-            s = Convert.ToChar(Console.Read());
+           
+            LableStart :
 
-            switch (s)
+            var s = Console.ReadKey();
+
+            switch (s.KeyChar)
             {
-                case 'W' :
+                case 'W':
                 case 'w':
                     Console.WriteLine("W");
                     break;
@@ -170,6 +174,8 @@ namespace Basic.Lesson_4._1
                     break;
 
             }
+
+            goto LableStart;
 
 
 
@@ -208,40 +214,125 @@ namespace Basic.Lesson_4._1
         //B4-P9/25. For_Matrix10x10
         public static void B4_P9_25_For_Matrix10x10()
         {
-           
+           int[,] Matrix = new int[10,10];
+
+           Random Rnd = new Random();
+
+            for(int i = 0; i < 10; i++)
+                for(int j = 0; j < 10; j++)
+                {
+                    Matrix[i, j] = Rnd.Next(0, 10);
+                    Console.Write(Matrix[i, j] + "  ");
+                    if (j == 9) Console.Write("\n");
+                }
+
         }
 
 
         //B4-P10/25. For_HelloWorld
         public static void B4_P10_25_For_HelloWorld()
         {
+            for (int i = 0; i < 6; i++)
+                Console.WriteLine("Hello world!!!");
         }
 
 
         //B4_P11/25. For_Afrochildren
         public static void B4_P11_25_For_Afrochildren()
         {
-            
+
+            string afrochildren = "Десять негритят отправились обедать, \nОдин поперхнулся, их осталось девять.\nДевять негритят, поев, клевали носом, \nОдин не смог проснуться, их осталось восемь. "; 
+           
+            Console.WriteLine(afrochildren);
+
+//Восемь негритят в Девон ушли потом,
+//Один не возвратился, остались всемером. 
+
+//Семь негритят дрова рубили вместе,
+//Зарубил один себя - и осталось шесть их. 
+
+//Шесть негритят пошли на пасеку гулять,
+//Одного ужалил шмель, их осталось пять. 
+
+//Пять негритят судейство учинили,
+//Засудили одного, осталось их четыре. 
+
+//Четыре негритенка пошли купаться в море,
+//Один попался на приманку, их осталось трое. 
+
+//Трое негритят в зверинце оказались,
+//Одного схватил медведь, и вдвоем остались. 
+
+//Двое негритят легли на солнцепеке,
+//Один сгорел - и вот один, несчастный, одинокий. 
+
+//Последний негритенок поглядел устало,
+//Он пошел повесился, и никого не стало.
         }
 
 
         //B4-P12/25. For_Minus10OddEven
         public static void B4_P12_25_For_Minus10OddEven()
         {
+            for (int i = 0; i >= -10; i--)
+            {
+                switch (i % 2)
+                {
+                    case 0:
+                        Console.Write(i + "  Number is an even number\n");
+                        break;
+                    case -1:
+                        Console.Write(i + "  Number is an odd number\n");
+                        break;
+                }
+            }
         }
 
 
         //B4-P13/25 For_LettersCount
         public static void B4_P13_25_For_LettersCount()
         {
-            
+           Console.WriteLine("Введите слово");
+           string word = Console.ReadLine();
+           int NumA = 0;
+           for (int i = 0; i < word.Length; i++)
+           {
+
+               if (word[i] == 'a' || word[i] == 'A' || word[i] == 'а' || word[i] == 'А') NumA++; // с учетом регистра и раскладки клавиатуры
+           }
+           Console.WriteLine(NumA);
+
         }
 
 
         //B4-P14/25 *For_AlphabetBack
         public static void B4_P14_25_For_AlphabetBack()
         {
-            
+            int AlphInt;
+            char Alph = '\u007A';
+            bool Flag = true;
+            for( int i = 0; Flag; i++)
+            {
+                Console.Write(Alph + " ");
+
+                AlphInt = Convert.ToInt32(Alph);
+                switch (i % 2)     // для вывода алфавита с учетом регистра
+                {
+                    case 0:
+                        AlphInt -= 32;
+                        break;
+                    case 1:
+                        AlphInt += 31;
+                        break;
+                }
+                if(Alph == 'A') 
+                {
+                    Flag = false;
+                    Console.WriteLine("\nКолличество символов  " + (i / 2 + 1)); // для проверки все ли выведенно
+                }
+               else
+                    Alph = Convert.ToChar(AlphInt);
+            }
         }
 
 
@@ -262,6 +353,12 @@ namespace Basic.Lesson_4._1
         //B4-P17/25 While_HelloWorld
         public static void B4_P17_25_While_HelloWorld()
         {
+            int i = 0;
+            while(i < 6)
+            {
+                Console.WriteLine("Hello world!!!");
+                i++;
+            }
         }
 
 
