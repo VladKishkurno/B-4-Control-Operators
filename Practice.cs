@@ -339,14 +339,55 @@ namespace Basic.Lesson_4._1
         //B4-P15/25 While_OddEventNumber
         public static void B4_P15_25_While_OddEventNumber()
         {
-            
+            int i = 1;
+            int n;
+
+            Console.WriteLine("Введите диапазон");
+            n = Convert.ToInt32(Console.ReadLine());
+
+            while (i <= n)
+            {
+                switch (i % 2)
+                {
+                    case 0:
+                        Console.Write(i + "\n");
+                        break;
+
+                     
+                    //case -1:
+                    //    Console.Write(i + "  Number is an odd number\n");
+                    //    break;
+                }
+                i++;
+            }
         }
 
 
         //B4-P16/25 DoWhile_OddEventNumber
         public static void B4_P16_25_DoWhile_OddEventNumber()
         {
-           
+            int i = 1;
+            int n;
+
+            Console.WriteLine("Введите диапазон");
+            n = Convert.ToInt32(Console.ReadLine());
+
+            do
+            {
+                switch (i % 2)
+                {
+                    //case 0:
+                    //    Console.Write(i + "\n");
+                    //    break;
+
+
+                    case 1:
+                        Console.Write(i + "\n");
+                        break;
+                }
+                i++;
+            }
+            while (i <= n);
         }
 
 
@@ -365,27 +406,130 @@ namespace Basic.Lesson_4._1
         //B4-P18/25 While_Multiplier
         public static void B4_P18_25_While_Multiplier()
         {
+            int i, j, degree;
+            j = 0;
+            float sum = 1;
+
+            Console.WriteLine("Введите число");
+            i = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("Введите степень");
+            degree = Convert.ToInt32(Console.ReadLine());
+
+            if (degree == 0) Console.WriteLine("1");
+            else
+            {
+                if (degree > 0)
+                {
+                    while (j < degree)
+                    {
+                        sum *= i;
+                        //sum = Convert.ToInt32(Math.Pow(i, degree));
+                        j++;
+                    }
+                }
+                else
+                    while (j > degree)
+                    {
+                       sum /= i;
+                        //sum = (float)(Math.Pow(i, degree));
+                        j--;
+
+                    }
+                Console.WriteLine(sum);
+            }
             
-        }
+            }
 
 
         //B4-P19/25 While_SolveNumberAdding
         public static void B4_P19_25_While_SolveNumberAdding()
         {
-            
+            int answer;
+
+            while (true)
+            {
+                Console.WriteLine("Введите ответ 2 + 2 = ");
+                answer = Convert.ToInt32(Console.ReadLine());
+
+                if (answer == 4) 
+                {
+                    Console.WriteLine("Правильно");
+                    break; 
+                }
+                else Console.WriteLine("Неправильно");
+
+            }
+
         }
 
 
         //B4-P20/25 While_DiceGame
         public static void B4_P20_25_While_DiceGame()
         {
+
+            int step;
+            int sum = 0;
             
+            while(sum < 25)
+            { 
+                Console.WriteLine("Введите число от 1 до 6");
+                step = Convert.ToInt32(Console.ReadLine());
+                if (step < 1 || step > 6)
+                {
+                    Console.WriteLine("Ошибка");
+                }
+                else sum += step;
+                Console.WriteLine("Текущее положение " + sum);
+                
+            }
+            Console.WriteLine("Вы дошли до конца");
+            
+
         }
+
 
 
         //B4-P21/25 *While_DiceGameMultiplePlayers
         public static void dB4_P21_25_While_DiceGameMultiplePlayers()
         {
+            int step;
+            int sumfirstPlayer = 0;
+            int sumsecondlayer = 0;
+            bool flagFirstPl = true;
+
+            while (sumfirstPlayer < 25 && sumsecondlayer < 25)
+            {
+                if (flagFirstPl == true)
+                {
+                    Console.WriteLine("Первый игрок введите число от 1 до 6");
+                }
+                else Console.WriteLine("Второй игрок введите число от 1 до 6");
+                step = Convert.ToInt32(Console.ReadLine());
+                if (step < 1 || step > 6)
+                {
+                    Console.WriteLine("Ошибка");
+                }
+                else
+                    if (flagFirstPl == true)
+                    {
+                        sumfirstPlayer += step;
+                        flagFirstPl = false;
+                    }
+                    else
+                    { 
+                        sumsecondlayer += step;
+                        flagFirstPl = true;
+                    }
+                 
+                Console.WriteLine("Текущее положение игрока 1 " + sumfirstPlayer);
+                
+                Console.WriteLine("Текущее положение игрока 2 " + sumsecondlayer);
+
+            }
+            if(sumfirstPlayer >= 25)
+            Console.WriteLine("Первый игрок победил");
+            else Console.WriteLine("Второй игрок победил");
         }
 
 
@@ -399,20 +543,86 @@ namespace Basic.Lesson_4._1
         //B4-P23/25 IfElse_Calcultor
         public static void B4_P23_25_IfElse_Calcultor()
         {
-            
+            int x, y, result;
+            char operand;
+            result = 0;
+
+             Console.WriteLine("Введите первое число");
+             x = Convert.ToInt32(Console.ReadLine());
+
+             Console.WriteLine("Введите операнд +, -, *, /");
+             operand = Convert.ToChar(Console.ReadLine());
+
+             Console.WriteLine("Введите второе число");
+             y = Convert.ToInt32(Console.ReadLine());
+
+             if (operand == '+') result = x + y;
+             else if (operand == '-') result = x - y;
+             else if (operand == '*') result = x * y;
+             else if (operand == '/') result = x / y;
+             else Console.WriteLine("Ошибка");
+
+             Console.WriteLine("Ответ " + result);
+
         }
 
 
         //B4-P24_25 Switch_Calculator
         public static void B4_P24_25_Switch_Calculator()
         {
-            
+
+            int x, y, result;
+            char operand;
+            result = 0;
+
+            Console.WriteLine("Введите первое число");
+            x = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("Введите операнд +, -, *, /");
+            operand = Convert.ToChar(Console.ReadLine());
+
+            Console.WriteLine("Введите второе число");
+            y = Convert.ToInt32(Console.ReadLine());
+
+            switch(operand)
+            {
+                case '+':
+                    result = x + y;
+                    break;
+                case '-':
+                    result = x - y;
+                    break;
+                case '*':
+                    result = x * y;
+                    break;
+                case '/':
+                    result = x / y;
+                    break;
+                default: 
+                    Console.WriteLine("Ошибка"); 
+                    break;
+            }
+
+            Console.WriteLine("Ответ " + result);
         }
 
 
         //B4-P25/25 Cycle_WordRevercse
         public static void B4_P25_25_Cycle_WordRevercse()
         {
+            string word;
+
+            Console.WriteLine("Введите слово");
+            word = Console.ReadLine();
+
+            //foreach(char ch in word)
+            //{
+            //    Console.Write(ch);
+            //}
+
+            for(int i = word.Length-1; i >= 0; i--)
+                Console.Write(word[i]);
+
         }
     }
 }
